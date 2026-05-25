@@ -17,11 +17,12 @@
   var estTotal = document.getElementById("est-total");
 
   function formatCAD(value) {
-    // fr-CA: "1 234,56 $"
+    // fr-CA currency formats as "37,81 $" — already includes the symbol.
     return value.toLocaleString("fr-CA", {
       style: "currency",
-      currency: "CAD"
-    }).replace("CA$", "").trim() + " $";
+      currency: "CAD",
+      currencyDisplay: "narrowSymbol"
+    });
   }
 
   function updateEstimate() {
