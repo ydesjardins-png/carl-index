@@ -133,15 +133,31 @@ a:hover { color: var(--foam); }
   border-radius: var(--radius);
   backdrop-filter: blur(18px) saturate(140%);
   -webkit-backdrop-filter: blur(18px) saturate(140%);
-  box-shadow: var(--shadow-glass);
+  /* Bold layered depth: stacked shadows = real pop-out */
+  box-shadow:
+    0 2px 4px rgba(2,14,25,.4),
+    0 8px 16px rgba(2,14,25,.45),
+    0 24px 48px rgba(2,14,25,.55),
+    0 48px 80px rgba(2,14,25,.4),
+    inset 0 1px 0 rgba(255,255,255,.18);
   overflow: hidden;
+  transform-style: preserve-3d;
+  transition: box-shadow var(--dur) var(--ease), transform var(--dur) var(--ease);
 }
 /* Glossy top edge highlight */
 .glass-card::before {
   content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
   background: linear-gradient(180deg, var(--glass-hi), transparent 22%);
-  opacity: .5; mix-blend-mode: screen;
+  opacity: .55; mix-blend-mode: screen;
 }
+/* Light sheen that follows the cursor (set via JS custom props) */
+.tilt-3d { --mx: 50%; --my: 50%; --rx: 0deg; --ry: 0deg; will-change: transform; }
+.tilt-3d::after {
+  content: ""; position: absolute; inset: 0; border-radius: inherit; pointer-events: none;
+  background: radial-gradient(420px circle at var(--mx) var(--my), rgba(255,255,255,.16), transparent 45%);
+  opacity: 0; transition: opacity var(--dur) var(--ease); z-index: 3;
+}
+.tilt-3d:hover::after { opacity: 1; }
 
 /* =================== BUTTONS =================== */
 .btn {
@@ -158,15 +174,43 @@ a:hover { color: var(--foam); }
 .btn-primary {
   background: linear-gradient(135deg, var(--seafoam), var(--pacific));
   color: var(--accent-ink);
-  box-shadow: 0 8px 24px rgba(58,214,224,.28);
+  /* 3D raised key: bottom edge + drop shadow */
+  box-shadow:
+    0 4px 0 #0e6ba8,
+    0 6px 12px rgba(2,14,25,.45),
+    0 12px 28px rgba(58,214,224,.35),
+    inset 0 1px 0 rgba(255,255,255,.45);
+  transform: translateY(0);
 }
-.btn-primary:hover { transform: translateY(-2px); box-shadow: 0 14px 34px rgba(58,214,224,.4); color: var(--accent-ink); }
+.btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow:
+    0 7px 0 #0e6ba8,
+    0 12px 22px rgba(2,14,25,.5),
+    0 20px 40px rgba(58,214,224,.45),
+    inset 0 1px 0 rgba(255,255,255,.5);
+  color: var(--accent-ink);
+}
+.btn-primary:active {
+  transform: translateY(2px);
+  box-shadow:
+    0 1px 0 #0e6ba8,
+    0 3px 8px rgba(2,14,25,.4),
+    0 6px 16px rgba(58,214,224,.3),
+    inset 0 1px 0 rgba(255,255,255,.4);
+}
 
 .btn-ghost {
   background: var(--glass-bg); color: var(--text);
   border-color: var(--glass-brd); backdrop-filter: blur(10px);
+  box-shadow: 0 4px 0 rgba(255,255,255,.06), 0 8px 20px rgba(2,14,25,.4);
 }
-.btn-ghost:hover { transform: translateY(-2px); background: var(--glass-bg-2); color: var(--foam); border-color: var(--glass-hi); }
+.btn-ghost:hover {
+  transform: translateY(-3px); background: var(--glass-bg-2); color: var(--foam);
+  border-color: var(--glass-hi);
+  box-shadow: 0 7px 0 rgba(255,255,255,.08), 0 14px 30px rgba(2,14,25,.5);
+}
+.btn-ghost:active { transform: translateY(2px); box-shadow: 0 1px 0 rgba(255,255,255,.06), 0 4px 12px rgba(2,14,25,.4); }
 
 /* =================== HEADER =================== */
 .site-header {
@@ -300,6 +344,9 @@ select option { background: var(--deep); color: var(--text); }
 .estimate-row.total span:last-child { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--seafoam); }
 
 .card-legal { font-size: .78rem; color: var(--text-mute); margin-top: var(--sp-2); line-height: 1.5; }
+
+/* Perspective contexts so child-card tilt renders in real 3D space */
+.hero-grid, .steps, .trust-grid, .adm-grid, .faq-list { perspective: 1400px; }
 
 /* =================== TRUST STRIP =================== */
 .trust-strip {

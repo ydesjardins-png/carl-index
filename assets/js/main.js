@@ -43,4 +43,37 @@
 
   /* ---- Scroll reveal removed: content must never depend on JS to be visible.
      A CSS-only entrance handles polish without any risk of hidden content. ---- */
+
+  /* ---- Bold 3D tilt on cards (mouse only; touch + reduced-motion skip it) ---- */
+  var prefersReduced = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+  var canHover = window.matchMedia("(hover: hover) and (pointer: fine)").matches;
+
+  if (!prefersReduced && canHover) {
+    var tiltCards = document.querySelectorAll(
+      ".hero-card, .step, .cost-table-card, .adm-card, .final-card, .trust-item, .faq-item"
+    );
+    var MAX_TILT = 10; // degrees — bold
+
+    tiltCards.forEach(function (card) {
+      card.classList.add("tilt-3d");
+
+      function onMove(e) {
+        var r = card.getBoundingClientRect();
+        var px = (e.clientX - r.left) / r.width;   // 0..1
+        var py = (e.clientY - r.top) / r.height;   // 0..1
+        var ry = (px - 0.5) * 2 * MAX_TILT;        // rotateY
+        var rx = -(py - 0.5) * 2 * MAX_TILT;       // rotateX
+        card.style.transform =
+          "perspective(820px) rotateX(" + rx + "deg) rotateY(" + ry + "deg) translateZ(22px) scale(1.02)";
+        card.style.setProperty("--mx", (px * 100) + "%");
+        card.style.setProperty("--my", (py * 100) + "%");
+      }
+      function onLeave() {
+        card.style.transform = "";
+      }
+
+      card.addEventListener("mousemove", onMove);
+      card.addEventListener("mouseleave", onLeave);
+    });
+  }
 })();
