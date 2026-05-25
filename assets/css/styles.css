@@ -576,10 +576,12 @@ select option { background: var(--deep); color: var(--text); }
     url("/assets/img/faq-island.webp") center / cover no-repeat;
 }
 .faq-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 4vw, 4rem); align-items: start; }
-.faq-intro { text-align: left; }
+.faq-intro { text-align: left; perspective: 1400px; }
 .faq-intro h2 { margin-bottom: var(--sp-2); }
 .faq-intro .section-lede { margin-bottom: var(--sp-3); }
-.faq-intro .section-lede:last-of-type { margin-bottom: var(--sp-4); }
+.faq-cta-card { padding: clamp(1.5rem, 3vw, 2rem); margin-top: var(--sp-4); }
+.faq-cta-card h3 { color: var(--text); margin-bottom: var(--sp-2); }
+.faq-cta-card p { font-size: .95rem; color: var(--text-soft); margin-bottom: var(--sp-3); }
 .faq-list { display: grid; gap: var(--sp-2); }
 .faq-item { padding: 0; }
 .faq-item summary {
