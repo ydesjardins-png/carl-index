@@ -430,9 +430,9 @@ select option { background: var(--deep); color: var(--text); }
 
 /* Cost table */
 .section-cost { background: linear-gradient(180deg, transparent, rgba(10,58,92,.25), transparent); }
-.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: center; }
-.section-head-left { text-align: left; margin: 0 0 var(--sp-4); max-width: none; }
-.cost-left .cost-table-card { max-width: none; margin: 0; }
+.cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: stretch; }
+.cost-left, .cost-right { display: flex; flex-direction: column; }
+.cost-left .cost-table-card { max-width: none; margin: 0; height: 100%; }
 .cost-table-card { max-width: 640px; margin: 0 auto; padding: clamp(1.5rem, 3vw, 2.25rem); }
 .cost-example { display: grid; gap: 0; }
 .cost-example-row {

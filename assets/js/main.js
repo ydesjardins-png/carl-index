@@ -48,7 +48,7 @@
 
   if (!prefersReduced && canHover) {
     var tiltCards = document.querySelectorAll(
-      ".hero-card, .step, .cost-table-card, .adm-card, .final-card, .trust-item, .faq-item"
+      ".hero-card, .step, .cost-table-card, .status-card, .adm-card, .final-card, .trust-item, .faq-item"
     );
     var MAX_TILT = 10; // degrees — bold
 
