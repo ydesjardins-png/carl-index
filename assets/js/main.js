@@ -19,6 +19,26 @@
   if (montant) montant.addEventListener("input", updateAmount);
   updateAmount();
 
+  /* ---- Live status card: play (and replay) the feed when scrolled into view ---- */
+  var statusCard = document.querySelector(".status-card");
+  if (statusCard && "IntersectionObserver" in window) {
+    var statusIO = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting) {
+          // restart animation by toggling the class
+          statusCard.classList.remove("is-playing");
+          void statusCard.offsetWidth; // force reflow so re-adding replays
+          statusCard.classList.add("is-playing");
+        } else {
+          statusCard.classList.remove("is-playing");
+        }
+      });
+    }, { threshold: 0.45 });
+    statusIO.observe(statusCard);
+  } else if (statusCard) {
+    statusCard.classList.add("is-playing");
+  }
+
   /* ---- Scroll reveal removed: content must never depend on JS to be visible.
      A CSS-only entrance handles polish without any risk of hidden content. ---- */
 

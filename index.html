@@ -271,40 +271,104 @@
 
     <!-- ============ COÛT DE L'EMPRUNT (OPC-prominent) ============ -->
     <section class="section section-cost" id="cout" aria-labelledby="cout-titre">
-      <div class="container">
-        <header class="section-head">
-          <p class="eyebrow">Transparence totale</p>
-          <h2 id="cout-titre">Combien coûte un prêt&nbsp;?</h2>
-          <p class="section-lede">
-            Le taux annuel est de <strong>23 %</strong> sur le montant emprunté, et des
-            frais s'appliquent. Voici un exemple clair de ce que vous rembourseriez au
-            total — capital, frais et intérêts compris.
-          </p>
-        </header>
+      <div class="container cost-grid">
 
-        <div class="glass-card cost-table-card">
-          <div class="cost-example">
-            <div class="cost-example-row">
-              <span class="cost-label">Vous empruntez</span>
-              <span class="cost-value">500 $</span>
+        <!-- LEFT: all existing content -->
+        <div class="cost-left">
+          <header class="section-head section-head-left">
+            <p class="eyebrow">Transparence totale</p>
+            <h2 id="cout-titre">Combien coûte un prêt&nbsp;?</h2>
+            <p class="section-lede">
+              Le taux annuel est de <strong>23 %</strong> sur le montant emprunté, et des
+              frais s'appliquent. Voici un exemple clair de ce que vous rembourseriez au
+              total — capital, frais et intérêts compris.
+            </p>
+          </header>
+
+          <div class="glass-card cost-table-card">
+            <div class="cost-example">
+              <div class="cost-example-row">
+                <span class="cost-label">Vous empruntez</span>
+                <span class="cost-value">500 $</span>
+              </div>
+              <div class="cost-example-row">
+                <span class="cost-label">Durée de remboursement</span>
+                <span class="cost-value">60 à 120 jours</span>
+              </div>
+              <div class="cost-example-row total">
+                <span class="cost-label">Remboursement total <small>(capital + frais + intérêts)</small></span>
+                <span class="cost-value">environ 750 $</span>
+              </div>
             </div>
-            <div class="cost-example-row">
-              <span class="cost-label">Durée de remboursement</span>
-              <span class="cost-value">60 à 120 jours</span>
+            <p class="cost-note">
+              <strong>Exemple représentatif&nbsp;:</strong> un prêt de 500 $, incluant le
+              capital, les frais et les intérêts, représente un remboursement total
+              d'environ 750 $, remboursable sur une période de 60 à 120 jours. Taux annuel
+              (TAP) de 23 % sur le montant emprunté&nbsp;; des frais s'appliquent en sus.
+              Le coût total exact vous est confirmé avant la signature de votre contrat.
+            </p>
+          </div>
+        </div>
+
+        <!-- RIGHT: animated live-status example card -->
+        <div class="cost-right">
+          <div class="status-card glass-card" role="img"
+               aria-label="Exemple illustratif du suivi d'une demande : demande reçue il y a 10 minutes, assignée à un analyste financier il y a 5 minutes, approuvée il y a 1 minute, puis argent envoyé par virement Interac.">
+            <div class="status-head">
+              <div class="status-title">
+                <span class="status-dot" aria-hidden="true"></span>
+                Suivi de votre demande
+              </div>
+              <span class="status-meta">En direct</span>
             </div>
-            <div class="cost-example-row total">
-              <span class="cost-label">Remboursement total <small>(capital + frais + intérêts)</small></span>
-              <span class="cost-value">environ 750 $</span>
+
+            <ol class="status-feed" aria-hidden="true">
+              <li class="status-item" data-step="1">
+                <span class="status-icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 3H7a2 2 0 0 0-2 2v14a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2V8z"/><path d="M14 3v5h5"/></svg>
+                </span>
+                <div class="status-body">
+                  <p class="status-label">Demande reçue</p>
+                  <p class="status-time">il y a 10 minutes</p>
+                </div>
+              </li>
+              <li class="status-item" data-step="2">
+                <span class="status-icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M22 11l-3 3-2-2"/></svg>
+                </span>
+                <div class="status-body">
+                  <p class="status-label">Assignée à un analyste financier</p>
+                  <p class="status-time">il y a 5 minutes</p>
+                </div>
+              </li>
+              <li class="status-item" data-step="3">
+                <span class="status-icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><path d="M22 4L12 14.01l-3-3"/></svg>
+                </span>
+                <div class="status-body">
+                  <p class="status-label">Demande approuvée</p>
+                  <p class="status-time">il y a 1 minute</p>
+                </div>
+              </li>
+              <li class="status-item status-item-final" data-step="4">
+                <span class="status-icon">
+                  <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M13 2L4 14h7l-1 8 9-12h-7z"/></svg>
+                </span>
+                <div class="status-body">
+                  <p class="status-label">Argent envoyé par virement Interac</p>
+                  <p class="status-amount">+ 500 $</p>
+                </div>
+              </li>
+            </ol>
+
+            <div class="status-foot">
+              <span class="status-check" aria-hidden="true">✓</span>
+              Souvent le jour même, si approuvé avant 14 h
             </div>
           </div>
-          <p class="cost-note">
-            <strong>Exemple représentatif&nbsp;:</strong> un prêt de 500 $, incluant le
-            capital, les frais et les intérêts, représente un remboursement total
-            d'environ 750 $, remboursable sur une période de 60 à 120 jours. Taux annuel
-            (TAP) de 23 % sur le montant emprunté&nbsp;; des frais s'appliquent en sus.
-            Le coût total exact vous est confirmé avant la signature de votre contrat.
-          </p>
+          <p class="status-disclaimer">Exemple illustratif. L'approbation et les délais varient selon votre dossier.</p>
         </div>
+
       </div>
     </section>
 
