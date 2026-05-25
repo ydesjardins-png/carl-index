@@ -221,10 +221,12 @@ a:hover { color: var(--foam); }
   border-bottom: 1px solid var(--glass-brd);
 }
 .header-inner { display: flex; align-items: center; gap: var(--sp-3); height: 72px; }
-.logo { display: inline-flex; align-items: center; gap: .55rem; }
-.logo-text { font-family: var(--font-display); font-size: 1.45rem; font-weight: 500; color: var(--text); letter-spacing: -.02em; }
+.logo { display: inline-flex; align-items: center; gap: .6rem; }
+.logo-text { font-family: var(--font-display); font-size: 1.45rem; font-weight: 500; color: var(--text); letter-spacing: -.02em; line-height: 1; }
 .logo-text strong { color: var(--seafoam); font-weight: 700; }
 .logo-mark { display: inline-grid; place-items: center; }
+.logo-tag { display: flex; flex-direction: column; gap: 3px; }
+.logo-sub { font-size: .62rem; letter-spacing: .16em; text-transform: uppercase; color: var(--text-mute); font-weight: 600; }
 
 .main-nav { display: flex; gap: var(--sp-3); margin-left: auto; }
 .main-nav a { color: var(--text-soft); font-weight: 500; font-size: .98rem; }

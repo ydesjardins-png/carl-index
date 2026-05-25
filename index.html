@@ -23,6 +23,7 @@
   <meta property="og:url" content="https://www.ducash.ca/" />
 
   <meta name="theme-color" content="#04111f" />
+  <link rel="icon" type="image/svg+xml" href="/assets/img/favicon.svg" />
 
   <!-- Fonts: Fraunces (refined display) + Hanken Grotesk (clean characterful body) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
@@ -61,19 +62,26 @@
   <!-- ============ HEADER ============ -->
   <header class="site-header" id="haut">
     <div class="container header-inner">
-      <a href="/" class="logo" aria-label="DuCash — accueil">
+      <a href="/" class="logo" aria-label="DuCash — Prêteur en ligne, accueil">
         <span class="logo-mark" aria-hidden="true">
-          <svg viewBox="0 0 32 32" width="32" height="32" fill="none" xmlns="http://www.w3.org/2000/svg">
-            <path d="M2 20c4-6 8-6 12 0s8 6 12 0" stroke="url(#wave)" stroke-width="2.5" stroke-linecap="round"/>
-            <path d="M2 26c4-6 8-6 12 0s8 6 12 0" stroke="url(#wave)" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+          <svg viewBox="0 0 48 48" width="42" height="42" xmlns="http://www.w3.org/2000/svg">
             <defs>
-              <linearGradient id="wave" x1="2" y1="20" x2="30" y2="26" gradientUnits="userSpaceOnUse">
+              <linearGradient id="wave-h" x1="10" y1="8" x2="38" y2="40" gradientUnits="userSpaceOnUse">
                 <stop stop-color="#3ad6e0"/><stop offset="1" stop-color="#1b8fd6"/>
               </linearGradient>
+              <clipPath id="clip-h"><circle cx="24" cy="24" r="20"/></clipPath>
             </defs>
+            <circle cx="24" cy="24" r="20" fill="none" stroke="url(#wave-h)" stroke-width="2.4"/>
+            <g clip-path="url(#clip-h)">
+              <path d="M6 30c4 0 5-6 10-6s6 6 10 6 5-6 10-6 6 6 10 6v16H6z" fill="url(#wave-h)" opacity=".9"/>
+              <path d="M6 34c4 0 5-5 9-5s5 5 9 5 5-5 9-5 5 5 9 5v12H6z" fill="#3ad6e0" opacity=".4"/>
+            </g>
           </svg>
         </span>
-        <span class="logo-text">Du<strong>Cash</strong></span>
+        <span class="logo-tag">
+          <span class="logo-text">Du<strong>Cash</strong></span>
+          <span class="logo-sub">Prêteur en ligne</span>
+        </span>
       </a>
 
       <nav class="main-nav" aria-label="Navigation principale">
@@ -532,14 +540,18 @@
       <div class="footer-brand">
         <a href="/" class="logo" aria-label="DuCash — accueil">
           <span class="logo-mark" aria-hidden="true">
-            <svg viewBox="0 0 32 32" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
-              <path d="M2 20c4-6 8-6 12 0s8 6 12 0" stroke="url(#wavef)" stroke-width="2.5" stroke-linecap="round"/>
-              <path d="M2 26c4-6 8-6 12 0s8 6 12 0" stroke="url(#wavef)" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+            <svg viewBox="0 0 48 48" width="38" height="38" xmlns="http://www.w3.org/2000/svg">
               <defs>
-                <linearGradient id="wavef" x1="2" y1="20" x2="30" y2="26" gradientUnits="userSpaceOnUse">
+                <linearGradient id="wave-f" x1="10" y1="8" x2="38" y2="40" gradientUnits="userSpaceOnUse">
                   <stop stop-color="#3ad6e0"/><stop offset="1" stop-color="#1b8fd6"/>
                 </linearGradient>
+                <clipPath id="clip-f"><circle cx="24" cy="24" r="20"/></clipPath>
               </defs>
+              <circle cx="24" cy="24" r="20" fill="none" stroke="url(#wave-f)" stroke-width="2.4"/>
+              <g clip-path="url(#clip-f)">
+                <path d="M6 30c4 0 5-6 10-6s6 6 10 6 5-6 10-6 6 6 10 6v16H6z" fill="url(#wave-f)" opacity=".9"/>
+                <path d="M6 34c4 0 5-5 9-5s5 5 9 5 5-5 9-5 5 5 9 5v12H6z" fill="#3ad6e0" opacity=".4"/>
+              </g>
             </svg>
           </span>
           <span class="logo-text">Du<strong>Cash</strong></span>
