@@ -352,11 +352,9 @@ select option { background: var(--deep); color: var(--text); }
 /* =================== TRUST STRIP =================== */
 .trust-strip {
   padding: 0;
-  /* Flow seamlessly out of the hero */
-  background: linear-gradient(180deg, rgba(6,34,54,.55) 0%, rgba(4,17,31,.85) 100%);
-  margin-top: calc(var(--sp-6) * -1);
+  background: var(--abyss);
+  margin-top: 0;
   position: relative; z-index: 2;
-  border-top: 1px solid rgba(58,214,224,.12);
   border-bottom: 1px solid var(--glass-brd);
 }
 /* full-width grid, no container gutters, cards touch each other */
