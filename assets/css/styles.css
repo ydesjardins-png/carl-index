@@ -588,7 +588,7 @@ select option { background: var(--deep); color: var(--text); }
     linear-gradient(180deg, rgba(4,17,31,.86) 0%, rgba(4,17,31,.7) 50%, rgba(4,17,31,.88) 100%),
     url("/assets/img/faq-island.webp") center / cover no-repeat;
 }
-.faq-grid { display: grid; grid-template-columns: 1fr 1.1fr; gap: clamp(2rem, 4vw, 4rem); align-items: start; }
+.faq-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: start; }
 .faq-intro { text-align: left; perspective: 1400px; }
 .faq-intro h2 { margin-bottom: var(--sp-2); }
 .faq-intro .section-lede { margin-bottom: var(--sp-3); }
