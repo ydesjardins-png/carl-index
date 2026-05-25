@@ -49,7 +49,7 @@
       "category": "Prêt personnel à tempérament",
       "priceSpecification": {
         "@type": "PriceSpecification",
-        "description": "Taux annuel de 23 %. Exemple : 500 $ sur 120 jours = 37,81 $ d'intérêts, total de 537,81 $."
+        "description": "Taux annuel de 23 % sur le montant emprunté; des frais s'appliquent en sus. Exemple représentatif : un prêt de 500 $, incluant le capital, les frais et les intérêts, représente un remboursement total d'environ 750 $ sur 60 à 120 jours."
       }
     }
   }
@@ -126,8 +126,8 @@
 
         <!-- Glass quote card -->
         <aside class="glass-card hero-card" id="demande" aria-labelledby="carte-titre">
-          <h2 id="carte-titre" class="card-title">Estimez votre prêt</h2>
-          <p class="card-sub">Aucun engagement. Aucune incidence sur votre dossier de crédit pour une estimation.</p>
+          <h2 id="carte-titre" class="card-title">Quel montant vous faut-il&nbsp;?</h2>
+          <p class="card-sub">Aucun engagement. Choisissez un montant et faites votre demande&nbsp;; le coût exact vous sera confirmé avant de signer.</p>
 
           <form class="quote-form" id="quote-form" novalidate>
             <div class="field">
@@ -149,21 +149,18 @@
               </select>
             </div>
 
-            <div class="estimate" aria-live="polite">
-              <div class="estimate-row">
-                <span>Intérêts (23 % annuel)</span>
-                <span id="est-interet">37,81 $</span>
-              </div>
-              <div class="estimate-row total">
-                <span>Total à rembourser</span>
-                <span id="est-total">537,81 $</span>
-              </div>
+            <div class="example-box">
+              <p>
+                <strong>Exemple&nbsp;:</strong> un prêt de 500 $ — incluant le capital, les
+                frais et les intérêts — représente un remboursement total d'environ
+                <strong class="example-figure">750 $</strong>.
+              </p>
             </div>
 
             <a href="#demande" class="btn btn-primary btn-block" id="cta-submit">Continuer ma demande</a>
             <p class="card-legal">
-              Estimation à titre indicatif seulement. Taux annuel de 23 %. Voir l'exemple
-              détaillé du <a href="#cout">coût de l'emprunt</a>.
+              Montant à titre indicatif. Taux annuel de 23 % sur le montant emprunté&nbsp;;
+              des frais s'appliquent en sus. Voir le <a href="#cout">coût de l'emprunt</a>.
             </p>
           </form>
         </aside>
@@ -248,34 +245,33 @@
           <p class="eyebrow">Transparence totale</p>
           <h2 id="cout-titre">Combien coûte un prêt&nbsp;?</h2>
           <p class="section-lede">
-            Notre taux annuel est de <strong>23 %</strong>. Voici exactement ce que vous
-            rembourseriez — sans frais cachés.
+            Le taux annuel est de <strong>23 %</strong> sur le montant emprunté, et des
+            frais s'appliquent. Voici un exemple clair de ce que vous rembourseriez au
+            total — capital, frais et intérêts compris.
           </p>
         </header>
 
         <div class="glass-card cost-table-card">
-          <table class="cost-table">
-            <caption class="sr-only">Exemples de coût d'emprunt au taux annuel de 23 %</caption>
-            <thead>
-              <tr>
-                <th scope="col">Montant</th>
-                <th scope="col">Durée</th>
-                <th scope="col">Intérêts</th>
-                <th scope="col">Total à rembourser</th>
-              </tr>
-            </thead>
-            <tbody>
-              <tr><th scope="row">500 $</th><td>60 jours</td><td>18,90 $</td><td>518,90 $</td></tr>
-              <tr><th scope="row">500 $</th><td>90 jours</td><td>28,36 $</td><td>528,36 $</td></tr>
-              <tr class="highlight"><th scope="row">500 $</th><td>120 jours</td><td>37,81 $</td><td>537,81 $</td></tr>
-              <tr><th scope="row">1 000 $</th><td>120 jours</td><td>75,62 $</td><td>1 075,62 $</td></tr>
-            </tbody>
-          </table>
+          <div class="cost-example">
+            <div class="cost-example-row">
+              <span class="cost-label">Vous empruntez</span>
+              <span class="cost-value">500 $</span>
+            </div>
+            <div class="cost-example-row">
+              <span class="cost-label">Durée de remboursement</span>
+              <span class="cost-value">60 à 120 jours</span>
+            </div>
+            <div class="cost-example-row total">
+              <span class="cost-label">Remboursement total <small>(capital + frais + intérêts)</small></span>
+              <span class="cost-value">environ 750 $</span>
+            </div>
+          </div>
           <p class="cost-note">
-            <strong>Exemple représentatif&nbsp;:</strong> un emprunt de 500 $ sur 120 jours,
-            à un taux annuel de 23 %, représente 37,81 $ d'intérêts, pour un total à
-            rembourser de 537,81 $. Le taux annuel en pourcentage (TAP) peut varier selon
-            la durée choisie.
+            <strong>Exemple représentatif&nbsp;:</strong> un prêt de 500 $, incluant le
+            capital, les frais et les intérêts, représente un remboursement total
+            d'environ 750 $, remboursable sur une période de 60 à 120 jours. Taux annuel
+            (TAP) de 23 % sur le montant emprunté&nbsp;; des frais s'appliquent en sus.
+            Le coût total exact vous est confirmé avant la signature de votre contrat.
           </p>
         </div>
       </div>
@@ -355,9 +351,11 @@
           <details class="glass-card faq-item">
             <summary>Quel est le taux d'intérêt&nbsp;?</summary>
             <div class="faq-body">
-              <p>Le taux annuel est de 23 %. Par exemple, un prêt de 500 $ sur 120 jours
-              représente 37,81 $ d'intérêts, soit un total de 537,81 $. Consultez la
-              section <a href="#cout">Coût de l'emprunt</a> pour d'autres exemples.</p>
+              <p>Le taux annuel est de 23 % sur le montant emprunté, et des frais
+              s'appliquent en sus. Par exemple, un prêt de 500 $ — incluant le capital,
+              les frais et les intérêts — représente un remboursement total d'environ
+              750 $ sur 60 à 120 jours. Consultez la section <a href="#cout">Coût de
+              l'emprunt</a> pour le détail.</p>
             </div>
           </details>
 
@@ -413,8 +411,10 @@
 
     <div class="container footer-disclaimer">
       <p>
-        <strong>Coût de l'emprunt&nbsp;:</strong> taux annuel de 23 %. Exemple représentatif —
-        500 $ empruntés sur 120 jours&nbsp;: 37,81 $ d'intérêts, total de 537,81 $.
+        <strong>Coût de l'emprunt&nbsp;:</strong> taux annuel de 23 % sur le montant
+        emprunté&nbsp;; des frais s'appliquent en sus. Exemple représentatif — un prêt de
+        500 $, incluant le capital, les frais et les intérêts, représente un remboursement
+        total d'environ 750 $ sur 60 à 120 jours.
         Les prêts sont offerts uniquement aux résidents du Québec admissibles. L'approbation
         et le délai de financement dépendent de la vérification des renseignements fournis.
         Empruntez de façon responsable.

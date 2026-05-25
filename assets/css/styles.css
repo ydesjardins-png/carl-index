@@ -335,13 +335,12 @@ select:focus-visible { border-color: var(--seafoam); outline: 3px solid var(--se
 /* Style the open option list (dark theme — avoids default white-on-dark mismatch) */
 select option { background: var(--deep); color: var(--text); }
 
-.estimate {
+.example-box {
   background: var(--glass-bg-2); border: 1px solid var(--glass-brd);
   border-radius: var(--radius-sm); padding: var(--sp-2) var(--sp-3); margin-bottom: var(--sp-3);
 }
-.estimate-row { display: flex; justify-content: space-between; align-items: center; padding: .35rem 0; font-size: .95rem; color: var(--text-soft); }
-.estimate-row.total { border-top: 1px solid var(--glass-brd); margin-top: .35rem; padding-top: .65rem; }
-.estimate-row.total span:last-child { font-family: var(--font-display); font-size: 1.5rem; font-weight: 700; color: var(--seafoam); }
+.example-box p { font-size: .92rem; color: var(--text-soft); margin: 0; line-height: 1.55; }
+.example-figure { font-family: var(--font-display); font-size: 1.15rem; color: var(--seafoam); }
 
 .card-legal { font-size: .78rem; color: var(--text-mute); margin-top: var(--sp-2); line-height: 1.5; }
 
@@ -398,14 +397,18 @@ select option { background: var(--deep); color: var(--text); }
 
 /* Cost table */
 .section-cost { background: linear-gradient(180deg, transparent, rgba(10,58,92,.25), transparent); }
-.cost-table-card { max-width: 820px; margin: 0 auto; padding: clamp(1.25rem, 3vw, 2rem); }
-.cost-table { width: 100%; border-collapse: collapse; }
-.cost-table th, .cost-table td { padding: .85rem 1rem; text-align: left; }
-.cost-table thead th { font-family: var(--font-body); font-size: .8rem; letter-spacing: .06em; text-transform: uppercase; color: var(--text-mute); border-bottom: 1px solid var(--glass-brd); }
-.cost-table tbody th, .cost-table tbody td { border-bottom: 1px solid rgba(255,255,255,.07); color: var(--text-soft); font-weight: 500; }
-.cost-table tbody th { color: var(--text); font-weight: 600; }
-.cost-table tr.highlight { background: rgba(58,214,224,.1); }
-.cost-table tr.highlight th, .cost-table tr.highlight td { color: var(--foam); }
+.cost-table-card { max-width: 640px; margin: 0 auto; padding: clamp(1.5rem, 3vw, 2.25rem); }
+.cost-example { display: grid; gap: 0; }
+.cost-example-row {
+  display: flex; justify-content: space-between; align-items: baseline; gap: 1rem;
+  padding: var(--sp-2) 0; border-bottom: 1px solid rgba(255,255,255,.08);
+}
+.cost-example-row:last-child { border-bottom: 0; }
+.cost-label { color: var(--text-soft); font-size: .98rem; }
+.cost-label small { display: block; color: var(--text-mute); font-size: .8rem; }
+.cost-value { font-family: var(--font-display); font-size: 1.35rem; font-weight: 600; color: var(--text); white-space: nowrap; }
+.cost-example-row.total { margin-top: .35rem; padding-top: var(--sp-2); border-top: 2px solid var(--glass-brd); }
+.cost-example-row.total .cost-value { font-size: 1.9rem; color: var(--seafoam); }
 .cost-note { font-size: .9rem; color: var(--text-mute); margin-top: var(--sp-3); line-height: 1.6; }
 
 /* Admissibilité */
