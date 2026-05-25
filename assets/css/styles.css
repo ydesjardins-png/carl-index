@@ -201,12 +201,12 @@ a:hover { color: var(--foam); }
   content: "";
   position: absolute; inset: 0; z-index: -2;
   background:
-    /* scrim: darker left for text, lighter right behind glass card */
-    linear-gradient(90deg, rgba(4,17,31,.94) 0%, rgba(4,17,31,.78) 38%, rgba(6,34,54,.55) 70%, rgba(6,34,54,.42) 100%),
+    /* scrim: darker left for text, lets turquoise show right behind glass card */
+    linear-gradient(90deg, rgba(4,17,31,.92) 0%, rgba(4,17,31,.72) 40%, rgba(6,34,54,.42) 72%, rgba(6,34,54,.3) 100%),
     /* top/bottom fade to blend into the page */
-    linear-gradient(180deg, rgba(4,17,31,.7) 0%, transparent 30%, rgba(4,17,31,.55) 100%),
+    linear-gradient(180deg, rgba(4,17,31,.6) 0%, transparent 28%, rgba(4,17,31,.6) 100%),
     /* the photo */
-    url("/assets/img/hero-ocean.webp") center 35% / cover no-repeat;
+    url("/assets/img/hero-ocean.webp") center 40% / cover no-repeat;
 }
 @media (max-width: 900px) {
   /* On mobile the card sits on top, so darken more evenly for legibility */
@@ -272,11 +272,24 @@ input[type="range"]::-moz-range-thumb {
 .field-hint { font-size: .82rem; color: var(--text-mute); margin-top: .45rem; }
 
 select {
-  width: 100%; padding: .8rem 1rem; border-radius: var(--radius-sm);
-  background: var(--glass-bg-2); border: 1px solid var(--glass-brd); color: var(--text);
-  font-family: var(--font-body); font-size: 1rem; cursor: pointer;
+  width: 100%;
+  padding: .85rem 2.75rem .85rem 1rem;
+  border-radius: var(--radius-sm);
+  background-color: var(--glass-bg-2);
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='9' viewBox='0 0 14 9' fill='none'%3E%3Cpath d='M1 1l6 6 6-6' stroke='%233ad6e0' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.1rem center;
+  border: 1px solid var(--glass-brd);
+  color: var(--text);
+  font-family: var(--font-body); font-size: 1rem; font-weight: 500;
+  cursor: pointer;
+  -webkit-appearance: none; -moz-appearance: none; appearance: none;
+  transition: border-color var(--dur) var(--ease), background-color var(--dur) var(--ease);
 }
-select:focus-visible { border-color: var(--seafoam); }
+select:hover { border-color: var(--glass-hi); background-color: var(--glass-bg); }
+select:focus-visible { border-color: var(--seafoam); outline: 3px solid var(--seafoam); outline-offset: 2px; }
+/* Style the open option list (dark theme — avoids default white-on-dark mismatch) */
+select option { background: var(--deep); color: var(--text); }
 
 .estimate {
   background: var(--glass-bg-2); border: 1px solid var(--glass-brd);
