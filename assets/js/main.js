@@ -24,16 +24,17 @@
   if (statusCard && "IntersectionObserver" in window) {
     var statusIO = new IntersectionObserver(function (entries) {
       entries.forEach(function (entry) {
-        if (entry.isIntersecting) {
-          // restart animation by toggling the class
+        if (entry.isIntersecting && !statusCard.classList.contains("is-playing")) {
+          // start (or restart) the staggered feed
           statusCard.classList.remove("is-playing");
           void statusCard.offsetWidth; // force reflow so re-adding replays
           statusCard.classList.add("is-playing");
-        } else {
+        } else if (!entry.isIntersecting) {
+          // fully out of view — reset so it replays next time
           statusCard.classList.remove("is-playing");
         }
       });
-    }, { threshold: 0.45 });
+    }, { threshold: 0, rootMargin: "0px 0px -25% 0px" });
     statusIO.observe(statusCard);
   } else if (statusCard) {
     statusCard.classList.add("is-playing");
