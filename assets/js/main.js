@@ -19,51 +19,56 @@
   if (montant) montant.addEventListener("input", updateAmount);
   updateAmount();
 
-  /* ---- Live status card: reveal each step on a 2s timer when in view ---- */
-  var statusCard = document.querySelector(".status-card");
-  if (statusCard) {
-    var stepEls = Array.prototype.slice.call(statusCard.querySelectorAll(".status-item"));
-    var footEl = statusCard.querySelector(".status-foot");
+  /* ---- Sequential reveal: reveal child items on a timer when scrolled into
+     view. Reused by the status feed and the eligibility criteria. ---- */
+  function sequentialReveal(container, itemSelector, stepMs, extraEl) {
+    if (!container) return;
+    var items = Array.prototype.slice.call(container.querySelectorAll(itemSelector));
+    if (!items.length) return;
     var timers = [];
-    var STEP_MS = 2000;
 
-    function resetFeed() {
+    function reset() {
       timers.forEach(clearTimeout);
       timers = [];
-      stepEls.forEach(function (el) { el.classList.remove("revealed"); });
-      if (footEl) footEl.classList.remove("revealed");
+      items.forEach(function (el) { el.classList.remove("revealed"); });
+      if (extraEl) extraEl.classList.remove("revealed");
     }
-
-    function playFeed() {
-      resetFeed();
-      stepEls.forEach(function (el, i) {
-        timers.push(setTimeout(function () { el.classList.add("revealed"); }, i * STEP_MS));
+    function play() {
+      reset();
+      items.forEach(function (el, i) {
+        timers.push(setTimeout(function () { el.classList.add("revealed"); }, i * stepMs));
       });
-      if (footEl) {
-        timers.push(setTimeout(function () { footEl.classList.add("revealed"); }, stepEls.length * STEP_MS));
+      if (extraEl) {
+        timers.push(setTimeout(function () { extraEl.classList.add("revealed"); }, items.length * stepMs));
       }
     }
 
     if (!("IntersectionObserver" in window)) {
       // No observer support: show everything (content must never be stuck hidden)
-      stepEls.forEach(function (el) { el.classList.add("revealed"); });
-      if (footEl) footEl.classList.add("revealed");
-    } else {
-      var playing = false;
-      var statusIO = new IntersectionObserver(function (entries) {
-        entries.forEach(function (entry) {
-          if (entry.isIntersecting && !playing) {
-            playing = true;
-            playFeed();
-          } else if (!entry.isIntersecting) {
-            playing = false;
-            resetFeed();
-          }
-        });
-      }, { threshold: 0, rootMargin: "0px 0px -20% 0px" });
-      statusIO.observe(statusCard);
+      items.forEach(function (el) { el.classList.add("revealed"); });
+      if (extraEl) extraEl.classList.add("revealed");
+      return;
     }
+    var playing = false;
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (entry) {
+        if (entry.isIntersecting && !playing) {
+          playing = true;
+          play();
+        } else if (!entry.isIntersecting) {
+          playing = false;
+          reset();
+        }
+      });
+    }, { threshold: 0, rootMargin: "0px 0px -20% 0px" });
+    io.observe(container);
   }
+
+  var statusCard = document.querySelector(".status-card");
+  sequentialReveal(statusCard, ".status-item", 2000, statusCard ? statusCard.querySelector(".status-foot") : null);
+
+  var admCard = document.querySelector(".adm-criteria-card");
+  sequentialReveal(admCard, ".adm-item", 500, null);
 
   /* ---- Scroll reveal removed: content must never depend on JS to be visible.
      A CSS-only entrance handles polish without any risk of hidden content. ---- */
@@ -74,7 +79,7 @@
 
   if (!prefersReduced && canHover) {
     var tiltCards = document.querySelectorAll(
-      ".hero-card, .step, .cost-table-card, .status-card, .adm-card, .final-card, .trust-item, .faq-item"
+      ".hero-card, .step, .cost-table-card, .status-card, .adm-criteria-card, .adm-card, .final-card, .trust-item, .faq-item"
     );
     var MAX_TILT = 10; // degrees — bold
 

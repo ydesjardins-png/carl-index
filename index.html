@@ -375,37 +375,72 @@
 
     <!-- ============ ADMISSIBILITÉ ============ -->
     <section class="section" id="admissibilite" aria-labelledby="adm-titre">
-      <div class="container adm-grid">
-        <div class="adm-copy">
+      <div class="container">
+        <header class="section-head">
           <p class="eyebrow">Qui peut emprunter</p>
           <h2 id="adm-titre">Êtes-vous admissible&nbsp;?</h2>
           <p class="section-lede">
             Nous regardons votre situation réelle, pas seulement un pointage. Pour faire
             une demande, vous devez&nbsp;:
           </p>
-          <ul class="adm-list" role="list">
-            <li><span class="check" aria-hidden="true">✓</span> Être <strong>résident du Québec</strong></li>
-            <li><span class="check" aria-hidden="true">✓</span> Être <strong>payé par dépôt direct</strong></li>
-            <li><span class="check" aria-hidden="true">✓</span> Occuper votre emploi <strong>depuis au moins 3 mois</strong></li>
-            <li><span class="check" aria-hidden="true">✓</span> Avoir un compte bancaire sans excès de chèques sans provision (NSF) ni opposition de paiement récente</li>
-          </ul>
-          <p class="adm-note">
-            Une cote de crédit imparfaite n'est pas un obstacle automatique — nous évaluons
-            d'abord votre revenu et votre stabilité d'emploi.
-          </p>
-        </div>
+        </header>
 
-        <aside class="glass-card adm-card" aria-label="Emprunt responsable">
-          <h3>Emprunter de façon responsable</h3>
-          <p>
-            Un prêt à court terme est une solution ponctuelle, pas une habitude. Avant
-            d'emprunter, assurez-vous de pouvoir rembourser dans les délais prévus.
-          </p>
-          <p>
-            Vous avez une question sur votre capacité de remboursement&nbsp;? Communiquez
-            avec nous avant de signer — c'est gratuit et sans pression.
-          </p>
-        </aside>
+        <div class="adm-grid">
+
+          <!-- LEFT: animated eligibility checklist -->
+          <div class="adm-left">
+            <div class="glass-card adm-criteria-card" aria-label="Critères d'admissibilité">
+              <ul class="adm-criteria" role="list">
+                <li class="adm-item" data-step="1">
+                  <span class="adm-ico" aria-hidden="true">✓</span>
+                  <span>Avoir 18 ans et plus</span>
+                </li>
+                <li class="adm-item" data-step="2">
+                  <span class="adm-ico" aria-hidden="true">✓</span>
+                  <span>Être résident canadien</span>
+                </li>
+                <li class="adm-item" data-step="3">
+                  <span class="adm-ico" aria-hidden="true">✓</span>
+                  <span>Être à l'emploi depuis 3 mois</span>
+                </li>
+                <li class="adm-item" data-step="4">
+                  <span class="adm-ico" aria-hidden="true">✓</span>
+                  <span>Être payé par dépôt direct dans un compte bancaire canadien</span>
+                </li>
+                <li class="adm-item" data-step="5">
+                  <span class="adm-ico" aria-hidden="true">✓</span>
+                  <span>Ne pas être sur le point de faire faillite</span>
+                </li>
+                <li class="adm-item" data-step="6">
+                  <span class="adm-ico" aria-hidden="true">✓</span>
+                  <span>Faire plus de 1 200 $ par mois</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+
+          <!-- RIGHT: responsible borrowing -->
+          <div class="adm-right">
+            <aside class="glass-card adm-card" aria-label="Emprunt responsable">
+              <h3>Emprunter de façon responsable</h3>
+              <p>
+                Veuillez emprunter de façon responsable. Nous vous offrons un moyen de vous
+                aider lors de moments difficiles. Toutefois, le taux d'intérêt est plus élevé
+                que le taux des banques locales. Ces prêts d'argent ne devraient être
+                contractés que lorsque vous n'avez pas d'autres options pour obtenir de
+                l'assistance financière, et vous devez y avoir recours le plus rarement
+                possible. Lorsqu'il est contracté en toute connaissance de cause, ce prêt
+                d'argent peut s'avérer être la bonne solution pour vous.
+              </p>
+              <p>
+                Toutefois, le fait de contracter en même temps un grand nombre de prêts
+                d'argent à court terme pourrait entraîner de graves problèmes financiers et
+                une dette impossible à supporter.
+              </p>
+            </aside>
+          </div>
+
+        </div>
       </div>
     </section>
 
