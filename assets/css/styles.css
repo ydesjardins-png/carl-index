@@ -594,10 +594,6 @@ select option { background: var(--deep); color: var(--text); }
 .faq-body p { font-size: .98rem; }
 
 /* Final CTA */
-.final-card { text-align: center; padding: clamp(2.5rem, 5vw, 4rem); max-width: 720px; margin: 0 auto; }
-.final-card h2 { margin-bottom: var(--sp-2); }
-.final-card p { font-size: 1.1rem; margin-bottom: var(--sp-4); }
-
 /* =================== FOOTER =================== */
 .site-footer {
   border-top: 1px solid var(--glass-brd);
@@ -623,7 +619,7 @@ select option { background: var(--deep); color: var(--text); }
 a.placeholder { color: #ffd27d; }
 
 .footer-disclaimer { border-top: 1px solid var(--glass-brd); padding-top: var(--sp-4); }
-.footer-disclaimer > p { font-size: .8rem; color: var(--text-mute); line-height: 1.65; max-width: 95ch; }
+.footer-disclaimer > p { font-size: .8rem; color: var(--text-mute); line-height: 1.65; max-width: none; }
 .footer-bottom {
   display: flex; flex-wrap: wrap; justify-content: space-between; gap: var(--sp-2);
   margin-top: var(--sp-4); padding-top: var(--sp-3); border-top: 1px solid rgba(255,255,255,.06);
