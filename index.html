@@ -463,7 +463,6 @@
             Vous ne trouvez pas la réponse à votre question&nbsp;? Notre équipe, basée ici,
             se fera un plaisir de vous accompagner — sans pression et sans jargon.
           </p>
-          <a href="#demande" class="btn btn-primary">Faire ma demande</a>
         </div>
 
         <!-- RIGHT: accordion -->
@@ -534,27 +533,53 @@
   <!-- ============ FOOTER ============ -->
   <footer class="site-footer">
     <div class="container footer-grid">
+
       <div class="footer-brand">
-        <span class="logo-text">Du<strong>Cash</strong></span>
-        <p>Prêts personnels en ligne pour les résidents du Québec.</p>
+        <a href="/" class="logo" aria-label="DuCash — accueil">
+          <span class="logo-mark" aria-hidden="true">
+            <svg viewBox="0 0 32 32" width="30" height="30" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <path d="M2 20c4-6 8-6 12 0s8 6 12 0" stroke="url(#wavef)" stroke-width="2.5" stroke-linecap="round"/>
+              <path d="M2 26c4-6 8-6 12 0s8 6 12 0" stroke="url(#wavef)" stroke-width="2.5" stroke-linecap="round" opacity="0.5"/>
+              <defs>
+                <linearGradient id="wavef" x1="2" y1="20" x2="30" y2="26" gradientUnits="userSpaceOnUse">
+                  <stop stop-color="#3ad6e0"/><stop offset="1" stop-color="#1b8fd6"/>
+                </linearGradient>
+              </defs>
+            </svg>
+          </span>
+          <span class="logo-text">Du<strong>Cash</strong></span>
+        </a>
+        <p class="footer-tagline">
+          Des prêts personnels en ligne, simples et transparents, pour vous aider à
+          traverser les moments difficiles. Une décision rapide, un dépôt le jour même.
+        </p>
+        <a href="#demande" class="btn btn-primary btn-sm">Faire une demande</a>
       </div>
 
-      <nav class="footer-nav" aria-label="Liens de pied de page">
-        <h3>Navigation</h3>
+      <nav class="footer-col" aria-label="Navigation du site">
+        <h3>Le prêt</h3>
         <a href="#comment">Comment ça marche</a>
         <a href="#cout">Coût de l'emprunt</a>
         <a href="#admissibilite">Admissibilité</a>
-        <a href="#faq">FAQ</a>
+        <a href="#faq">Questions fréquentes</a>
       </nav>
 
-      <div class="footer-legal">
+      <nav class="footer-col" aria-label="Aide et contact">
+        <h3>Nous joindre</h3>
+        <!-- PLACEHOLDERS — à remplacer avant la mise en ligne -->
+        <a href="tel:" class="placeholder">[Téléphone : à déterminer]</a>
+        <a href="mailto:" class="placeholder">[Courriel : à déterminer]</a>
+        <a href="/en/" hreflang="en-ca" lang="en">English version</a>
+      </nav>
+
+      <div class="footer-col footer-legal">
         <h3>Renseignements légaux</h3>
         <!-- PLACEHOLDERS — à remplacer avant la mise en ligne -->
         <p class="placeholder">[RAISON SOCIALE : à déterminer]</p>
         <p class="placeholder">[ADRESSE : à déterminer]</p>
         <p class="placeholder">Permis de prêteur d'argent (OPC) : [N° à recevoir]</p>
-        <p class="placeholder">Téléphone : [à déterminer] · Courriel : [à déterminer]</p>
       </div>
+
     </div>
 
     <div class="container footer-disclaimer">
@@ -562,12 +587,16 @@
         <strong>Coût de l'emprunt&nbsp;:</strong> taux annuel de 23 % sur le montant
         emprunté&nbsp;; des frais s'appliquent en sus. Exemple représentatif — un prêt de
         500 $, incluant le capital, les frais et les intérêts, représente un remboursement
-        total d'environ 750 $ sur 60 à 120 jours.
-        Les prêts sont offerts uniquement aux résidents du Québec admissibles. L'approbation
-        et le délai de financement dépendent de la vérification des renseignements fournis.
-        Empruntez de façon responsable.
+        total d'environ 750 $ sur 60 à 120 jours. L'approbation n'est pas garantie&nbsp;:
+        chaque demande est évaluée individuellement, et le délai de financement dépend de
+        la vérification des renseignements fournis. Le taux d'intérêt est plus élevé que
+        celui des institutions bancaires&nbsp;; ces prêts devraient être utilisés avec
+        parcimonie. Empruntez de façon responsable.
       </p>
-      <p class="copyright">© <span id="year">2026</span> DuCash. Tous droits réservés.</p>
+      <div class="footer-bottom">
+        <p class="copyright">© <span id="year">2026</span> DuCash. Tous droits réservés.</p>
+        <p class="footer-made">Prêteur en ligne · Québec, Canada</p>
+      </div>
     </div>
   </footer>
 
