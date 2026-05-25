@@ -19,25 +19,50 @@
   if (montant) montant.addEventListener("input", updateAmount);
   updateAmount();
 
-  /* ---- Live status card: play (and replay) the feed when scrolled into view ---- */
+  /* ---- Live status card: reveal each step on a 2s timer when in view ---- */
   var statusCard = document.querySelector(".status-card");
-  if (statusCard && "IntersectionObserver" in window) {
-    var statusIO = new IntersectionObserver(function (entries) {
-      entries.forEach(function (entry) {
-        if (entry.isIntersecting && !statusCard.classList.contains("is-playing")) {
-          // start (or restart) the staggered feed
-          statusCard.classList.remove("is-playing");
-          void statusCard.offsetWidth; // force reflow so re-adding replays
-          statusCard.classList.add("is-playing");
-        } else if (!entry.isIntersecting) {
-          // fully out of view — reset so it replays next time
-          statusCard.classList.remove("is-playing");
-        }
+  if (statusCard) {
+    var stepEls = Array.prototype.slice.call(statusCard.querySelectorAll(".status-item"));
+    var footEl = statusCard.querySelector(".status-foot");
+    var timers = [];
+    var STEP_MS = 2000;
+
+    function resetFeed() {
+      timers.forEach(clearTimeout);
+      timers = [];
+      stepEls.forEach(function (el) { el.classList.remove("revealed"); });
+      if (footEl) footEl.classList.remove("revealed");
+    }
+
+    function playFeed() {
+      resetFeed();
+      stepEls.forEach(function (el, i) {
+        timers.push(setTimeout(function () { el.classList.add("revealed"); }, i * STEP_MS));
       });
-    }, { threshold: 0, rootMargin: "0px 0px -25% 0px" });
-    statusIO.observe(statusCard);
-  } else if (statusCard) {
-    statusCard.classList.add("is-playing");
+      if (footEl) {
+        timers.push(setTimeout(function () { footEl.classList.add("revealed"); }, stepEls.length * STEP_MS));
+      }
+    }
+
+    if (!("IntersectionObserver" in window)) {
+      // No observer support: show everything (content must never be stuck hidden)
+      stepEls.forEach(function (el) { el.classList.add("revealed"); });
+      if (footEl) footEl.classList.add("revealed");
+    } else {
+      var playing = false;
+      var statusIO = new IntersectionObserver(function (entries) {
+        entries.forEach(function (entry) {
+          if (entry.isIntersecting && !playing) {
+            playing = true;
+            playFeed();
+          } else if (!entry.isIntersecting) {
+            playing = false;
+            resetFeed();
+          }
+        });
+      }, { threshold: 0, rootMargin: "0px 0px -20% 0px" });
+      statusIO.observe(statusCard);
+    }
   }
 
   /* ---- Scroll reveal removed: content must never depend on JS to be visible.

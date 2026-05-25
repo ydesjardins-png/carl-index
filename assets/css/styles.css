@@ -488,13 +488,9 @@ select option { background: var(--deep); color: var(--text); }
   display: flex; align-items: flex-start; gap: var(--sp-2); padding: .55rem 0;
   position: relative; z-index: 1;
   opacity: 0; transform: translateY(10px);
+  transition: opacity .5s var(--ease), transform .5s var(--ease);
 }
-.status-card.is-playing .status-item { animation: feedIn .6s var(--ease) forwards; }
-.status-card.is-playing .status-item[data-step="1"] { animation-delay: 0s; }
-.status-card.is-playing .status-item[data-step="2"] { animation-delay: 2s; }
-.status-card.is-playing .status-item[data-step="3"] { animation-delay: 4s; }
-.status-card.is-playing .status-item[data-step="4"] { animation-delay: 6s; }
-@keyframes feedIn { to { opacity: 1; transform: translateY(0); } }
+.status-item.revealed { opacity: 1; transform: translateY(0); }
 
 .status-icon {
   flex-shrink: 0; display: grid; place-items: center;
@@ -524,17 +520,19 @@ select option { background: var(--deep); color: var(--text); }
   display: flex; align-items: center; gap: .5rem; margin-top: var(--sp-3);
   padding-top: var(--sp-2); border-top: 1px solid var(--glass-brd);
   font-size: .85rem; color: var(--text-soft);
-  opacity: 0;
+  opacity: 0; transition: opacity .5s var(--ease);
 }
-.status-card.is-playing .status-foot { animation: feedIn .6s var(--ease) 8s forwards; }
+.status-foot.revealed { opacity: 1; }
 .status-check {
   display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%;
   background: rgba(58,214,224,.16); color: var(--seafoam); font-size: .7rem; font-weight: 700; flex-shrink: 0;
 }
-.status-disclaimer { font-size: .78rem; color: var(--text-mute); text-align: center; margin-top: var(--sp-2); font-style: italic; }
 
 @media (prefers-reduced-motion: reduce) {
-  .status-item, .status-foot { opacity: 1; transform: none; animation: none; }
+  /* Respect the preference: no sliding motion. Steps still reveal in
+     sequence (JS adds .revealed on a timer) but only fade — no transform. */
+  .status-item, .status-foot { transform: none !important; transition: opacity .3s ease !important; }
+  .status-item.revealed { transform: none !important; }
   .status-dot { animation: none; }
 }
 
