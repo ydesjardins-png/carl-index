@@ -433,6 +433,7 @@ select option { background: var(--deep); color: var(--text); }
 .cost-grid { display: grid; grid-template-columns: 1fr 1fr; gap: clamp(2rem, 4vw, 4rem); align-items: stretch; }
 .cost-left, .cost-right { display: flex; flex-direction: column; }
 .cost-left .cost-table-card { max-width: none; margin: 0; height: 100%; }
+.cost-right .status-card { height: 100%; }
 .cost-table-card { max-width: 640px; margin: 0 auto; padding: clamp(1.5rem, 3vw, 2.25rem); }
 .cost-example { display: grid; gap: 0; }
 .cost-example-row {
@@ -448,7 +449,8 @@ select option { background: var(--deep); color: var(--text); }
 .cost-note { font-size: .9rem; color: var(--text-mute); margin-top: var(--sp-3); line-height: 1.6; }
 
 /* =================== LIVE STATUS CARD =================== */
-.status-card { padding: clamp(1.25rem, 2.5vw, 1.75rem); }
+.status-card { padding: clamp(1.25rem, 2.5vw, 1.75rem); display: flex; flex-direction: column; }
+.status-feed { flex: 1; }
 .status-head {
   display: flex; align-items: center; justify-content: space-between;
   padding-bottom: var(--sp-2); margin-bottom: var(--sp-3);
@@ -477,11 +479,11 @@ select option { background: var(--deep); color: var(--text); }
   position: relative; z-index: 1;
   opacity: 0; transform: translateY(10px);
 }
-.status-card.is-playing .status-item { animation: feedIn .5s var(--ease) forwards; }
-.status-card.is-playing .status-item[data-step="1"] { animation-delay: .2s; }
-.status-card.is-playing .status-item[data-step="2"] { animation-delay: 1.1s; }
-.status-card.is-playing .status-item[data-step="3"] { animation-delay: 2.0s; }
-.status-card.is-playing .status-item[data-step="4"] { animation-delay: 2.9s; }
+.status-card.is-playing .status-item { animation: feedIn .6s var(--ease) forwards; }
+.status-card.is-playing .status-item[data-step="1"] { animation-delay: 0s; }
+.status-card.is-playing .status-item[data-step="2"] { animation-delay: 2s; }
+.status-card.is-playing .status-item[data-step="3"] { animation-delay: 4s; }
+.status-card.is-playing .status-item[data-step="4"] { animation-delay: 6s; }
 @keyframes feedIn { to { opacity: 1; transform: translateY(0); } }
 
 .status-icon {
@@ -514,7 +516,7 @@ select option { background: var(--deep); color: var(--text); }
   font-size: .85rem; color: var(--text-soft);
   opacity: 0;
 }
-.status-card.is-playing .status-foot { animation: feedIn .5s var(--ease) 3.5s forwards; }
+.status-card.is-playing .status-foot { animation: feedIn .6s var(--ease) 8s forwards; }
 .status-check {
   display: inline-grid; place-items: center; width: 18px; height: 18px; border-radius: 50%;
   background: rgba(58,214,224,.16); color: var(--seafoam); font-size: .7rem; font-weight: 700; flex-shrink: 0;
