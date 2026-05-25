@@ -65,7 +65,7 @@
   }
 
   var statusCard = document.querySelector(".status-card");
-  sequentialReveal(statusCard, ".status-item", 2000, statusCard ? statusCard.querySelector(".status-foot") : null);
+  sequentialReveal(statusCard, ".status-item", 900, statusCard ? statusCard.querySelector(".status-foot") : null);
 
   var admCard = document.querySelector(".adm-criteria-card");
   sequentialReveal(admCard, ".adm-item", 500, null);
@@ -79,7 +79,7 @@
 
   if (!prefersReduced && canHover) {
     var tiltCards = document.querySelectorAll(
-      ".hero-card, .step, .cost-table-card, .status-card, .adm-criteria-card, .adm-card, .faq-cta-card, .trust-item, .faq-item"
+      ".hero-card, .step, .cost-table-card, .status-card, .adm-criteria-card, .adm-card, .faq-cta-card, .faq-item"
     );
     var MAX_TILT = 10; // degrees — bold
 
