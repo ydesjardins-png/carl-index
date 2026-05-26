@@ -252,14 +252,14 @@ a:hover { color: var(--foam); }
     /* top/bottom fade to blend into the page */
     linear-gradient(180deg, rgba(4,17,31,.6) 0%, transparent 28%, rgba(4,17,31,.6) 100%),
     /* the photo */
-    url("/assets/img/hero-ocean.webp") center 40% / cover no-repeat;
+    url("/assets/img/hero-beach.webp") center 40% / cover no-repeat;
 }
 @media (max-width: 900px) {
   /* On mobile the card sits on top, so darken more evenly for legibility */
   .hero::before {
     background:
       linear-gradient(180deg, rgba(4,17,31,.88) 0%, rgba(4,17,31,.72) 45%, rgba(6,34,54,.6) 100%),
-      url("/assets/img/hero-ocean.webp") center / cover no-repeat;
+      url("/assets/img/hero-beach.webp") center / cover no-repeat;
   }
 }
 .hero-ambient { position: absolute; inset: 0; overflow: hidden; z-index: -1; pointer-events: none; }
