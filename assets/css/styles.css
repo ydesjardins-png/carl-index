@@ -247,10 +247,10 @@ a:hover { color: var(--foam); }
   content: "";
   position: absolute; inset: 0; z-index: -2;
   background:
-    /* scrim: lighter — lets the beach show through while keeping text legible */
-    linear-gradient(90deg, rgba(4,17,31,.78) 0%, rgba(4,17,31,.5) 40%, rgba(6,34,54,.25) 72%, rgba(6,34,54,.15) 100%),
+    /* scrim: deeper on the left for text, opens up to the bright lagoon on the right */
+    linear-gradient(90deg, rgba(4,17,31,.92) 0%, rgba(4,17,31,.74) 38%, rgba(6,34,54,.4) 68%, rgba(6,34,54,.2) 100%),
     /* top/bottom fade to blend into the page */
-    linear-gradient(180deg, rgba(4,17,31,.45) 0%, transparent 28%, rgba(4,17,31,.45) 100%),
+    linear-gradient(180deg, rgba(4,17,31,.5) 0%, transparent 30%, rgba(4,17,31,.5) 100%),
     /* the photo */
     url("/assets/img/hero-beach.webp") center 40% / cover no-repeat;
 }
@@ -292,9 +292,14 @@ a:hover { color: var(--foam); }
 }
 
 /* Hero glass card */
-.hero-card { padding: clamp(1.5rem, 3vw, 2.25rem); animation: rise .7s var(--ease) .15s both; }
+.hero-card {
+  padding: clamp(1.5rem, 3vw, 2.25rem); animation: rise .7s var(--ease) .15s both;
+  /* Deeper ocean-tinted glass so card text stays readable over the bright sky */
+  background: linear-gradient(160deg, rgba(6,34,54,.82), rgba(4,17,31,.88));
+  border: 1px solid rgba(58,214,224,.18);
+}
 .card-title { font-size: 1.5rem; margin-bottom: .35rem; }
-.card-sub { font-size: .9rem; color: var(--text-mute); margin-bottom: var(--sp-3); }
+.card-sub { font-size: .9rem; color: var(--text-soft); margin-bottom: var(--sp-3); }
 
 .quote-form .field { margin-bottom: var(--sp-3); }
 .quote-form label { display: block; font-weight: 600; font-size: .95rem; color: var(--text); margin-bottom: .5rem; }
@@ -315,7 +320,7 @@ input[type="range"]::-moz-range-thumb {
   width: 22px; height: 22px; border-radius: 50%;
   background: var(--foam); border: 3px solid var(--pacific); cursor: pointer;
 }
-.field-hint { font-size: .82rem; color: var(--text-mute); margin-top: .45rem; }
+.field-hint { font-size: .82rem; color: var(--text-soft); margin-top: .45rem; }
 
 select {
   width: 100%;
