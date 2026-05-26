@@ -247,10 +247,10 @@ a:hover { color: var(--foam); }
   content: "";
   position: absolute; inset: 0; z-index: -2;
   background:
-    /* scrim: darker left for text, lets turquoise show right behind glass card */
-    linear-gradient(90deg, rgba(4,17,31,.92) 0%, rgba(4,17,31,.72) 40%, rgba(6,34,54,.42) 72%, rgba(6,34,54,.3) 100%),
+    /* scrim: lighter — lets the beach show through while keeping text legible */
+    linear-gradient(90deg, rgba(4,17,31,.78) 0%, rgba(4,17,31,.5) 40%, rgba(6,34,54,.25) 72%, rgba(6,34,54,.15) 100%),
     /* top/bottom fade to blend into the page */
-    linear-gradient(180deg, rgba(4,17,31,.6) 0%, transparent 28%, rgba(4,17,31,.6) 100%),
+    linear-gradient(180deg, rgba(4,17,31,.45) 0%, transparent 28%, rgba(4,17,31,.45) 100%),
     /* the photo */
     url("/assets/img/hero-beach.webp") center 40% / cover no-repeat;
 }
